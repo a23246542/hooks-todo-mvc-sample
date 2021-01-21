@@ -1,8 +1,8 @@
-import './App.css';
+import './App.scss';
 import Header from './components/Header';
 import AddTodo from './components/AddTodo';
 import Todos from './components/Todos';
-import Footer from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (

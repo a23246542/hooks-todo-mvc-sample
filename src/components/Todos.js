@@ -1,10 +1,11 @@
 import React from 'react'
+import TodoItem from './TodoItem';
 
 function Todos() {
     return (
-        <div>
-            
-        </div>
+      <div className="todos">
+          <TodoItem/>
+      </div>
     )
 }
 
