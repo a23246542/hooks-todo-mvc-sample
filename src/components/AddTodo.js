@@ -2,6 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 
 function AddTodo() {
+  
   return (
     <div className="add-todo">
       <label className="add-todo-icon icon" htmlFor="add-todo-input"></label>

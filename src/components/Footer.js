@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Footer() {
+function Footer({numOfTodos}) {
   return (
     <footer>
-      <p>剩餘數目:2</p>
+      <p>剩餘數目:{numOfTodos}</p>
     </footer>
   )
 }

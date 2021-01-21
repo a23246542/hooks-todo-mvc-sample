@@ -1,10 +1,19 @@
 import React from 'react'
 import TodoItem from './TodoItem';
 
-function Todos() {
+function Todos({
+  todos
+}) {
     return (
       <div className="todos">
-          <TodoItem/>
+        {
+          todos.map((todo)=>{
+            return <TodoItem
+              key={todo.id}
+              todo={todo}
+            />
+          })
+        }
       </div>
     )
 }
