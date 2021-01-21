@@ -33,11 +33,63 @@ function App() {
 
   const numOfTodos = todoList.filter(todo => !todo.isDone).length;
 
+  const handleChange = (e) => {
+    // setInputValue(e.target.value.trim());//存
+    setInputValue(e.target.value);
+  }
+
+  const handleAddTodo = () => {
+
+    if(inputValue.trim().length === 0){
+      return;
+    }
+    // console.log('保存');
+    setTodos((preState) => {
+      
+      setInputValue('');//@@
+
+      return [
+        ...preState,
+        {
+          id:uuidv4(),
+          title:inputValue.trim(),
+          isDone: false,
+          isEdit: false,
+        }
+      ]
+    })
+
+    // setInputValue('');//@@
+  }
+
+  const handleKeyPress = (e) => {
+    console.log(e); //@@中文鍵盤的問題不見了
+    if (e.key!=="Enter") {
+      return;
+    }
+    handleAddTodo();
+  }
+
+  const handleDelete = () => {}
+
+  const handleToggleIsDone = () => {}
+
+  const updateIsEdit = () => {}
+
+  const handleSave = () => {}
+
   return (
     <div className="app">
       <Header/>
-      <AddTodo/>
-      <Todos todos={todos}/>
+      <AddTodo 
+        inputValue={inputValue}
+        handleChange={handleChange}
+        handleAddTodo={handleAddTodo}
+        handleKeyPress={handleKeyPress}
+      />
+      <Todos 
+        todos={todos}
+        />
       <Footer numOfTodos={numOfTodos}/>
     </div>
   );

@@ -2,7 +2,8 @@ import React from 'react'
 import TodoItem from './TodoItem';
 
 function Todos({
-  todos
+  todos,
+  handleChange
 }) {
     return (
       <div className="todos">
