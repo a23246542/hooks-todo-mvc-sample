@@ -3,7 +3,8 @@ import TodoItem from './TodoItem';
 
 function Todos({
   todos,
-  handleChange
+  handleChange,
+  handleDelete
 }) {
     return (
       <div className="todos">
@@ -12,6 +13,7 @@ function Todos({
             return <TodoItem
               key={todo.id}
               todo={todo}
+              handleDelete={handleDelete}
             />
           })
         }

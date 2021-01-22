@@ -1,7 +1,10 @@
 import React from 'react'
 import clsx from 'clsx'
 
-function TodoItem({todo}) {
+function TodoItem({
+  todo,
+  handleDelete
+}) {
   return (
     // <div className="task-item">
     <div className={clsx('task-item',{
@@ -22,7 +25,9 @@ function TodoItem({todo}) {
         />
       </div>
       <div className="task-item-action">
-        <button className="icon btn-delete btn-reset ">
+        <button className="icon btn-delete btn-reset"
+          onClick={handleDelete({todoId:todo.id})}
+        >
           {''}
         </button>
       </div>

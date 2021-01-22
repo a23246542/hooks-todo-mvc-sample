@@ -45,7 +45,7 @@ function App() {
     }
     // console.log('保存');
     setTodos((preState) => {
-      
+
       setInputValue('');//@@
 
       return [
@@ -70,7 +70,14 @@ function App() {
     handleAddTodo();
   }
 
-  const handleDelete = () => {}
+  const handleDelete = ({todoId}) => () => {
+    // setTodos((preState)=>{
+    //   return preState.filter(todo=>{
+    //     return todo.id !== todoId;
+    //   })
+    // })
+    setTodos((preState) => preState.filter(todo => todo.id!== todoId))
+  }
 
   const handleToggleIsDone = () => {}
 
@@ -81,14 +88,15 @@ function App() {
   return (
     <div className="app">
       <Header/>
-      <AddTodo 
+      <AddTodo
         inputValue={inputValue}
         handleChange={handleChange}
         handleAddTodo={handleAddTodo}
         handleKeyPress={handleKeyPress}
       />
-      <Todos 
+      <Todos
         todos={todos}
+        handleDelete={handleDelete}
         />
       <Footer numOfTodos={numOfTodos}/>
     </div>
