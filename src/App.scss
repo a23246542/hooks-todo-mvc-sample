@@ -137,8 +137,10 @@ footer{
     }
   }
 
+
+  //@@scss指南 狀態寫前寫後
   &.done{
-    .icon-checked{
+    .icon.icon-checked{ //沒加icon 點的當下會被hover蓋過 或是重複class
       background-image: url('./assert/images/check-active.svg');
       background-repeat: no-repeat;
     }
@@ -162,7 +164,7 @@ footer{
     .task-item-body-input{
       display: block;
     }
-    
+
   }
 
   .task-item-checked{

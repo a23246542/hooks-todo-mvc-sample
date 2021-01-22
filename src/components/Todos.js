@@ -3,8 +3,10 @@ import TodoItem from './TodoItem';
 
 function Todos({
   todos,
-  handleChange,
-  handleDelete
+  handleDelete,
+  handleToggleIsDone,
+  updateIsEdit,
+  handleSave
 }) {
     return (
       <div className="todos">
@@ -14,6 +16,9 @@ function Todos({
               key={todo.id}
               todo={todo}
               handleDelete={handleDelete}
+              handleToggleIsDone={handleToggleIsDone}
+              updateIsEdit={updateIsEdit}
+              handleSave={handleSave}
             />
           })
         }
