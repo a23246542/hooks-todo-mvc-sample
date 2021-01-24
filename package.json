@@ -18,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "format": "prettier src/**/*.{js,jsx,scss,css,md} --write",
+    "lint": "eslint src/**/*.{js}",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -25,6 +27,12 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": true
   },
   "browserslist": {
     "production": [
@@ -37,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "prettier": "2.2.1"
   }
 }

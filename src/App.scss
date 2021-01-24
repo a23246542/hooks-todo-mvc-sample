@@ -1,235 +1,231 @@
-
-$major:#ff6600;
+$major: #ff6600;
 $gray: #767678;
 
-html,body {
-  background-color: #f4f4f4;
-  font-family: 'Lato', 'Noto Sans TC', sans-serif;
+html,
+body {
+    background-color: #f4f4f4;
+    font-family: 'Lato', 'Noto Sans TC', sans-serif;
 }
 
 .app {
-  // outline: 1px solid red;
-  width: 100%;
-  max-width: 600px;
-  min-width: 320px;//避免100%視窗縮小
-  margin: 45px auto;
-  background-color: #fff;
-  padding: 12px 16px;
+    // outline: 1px solid red;
+    width: 100%;
+    max-width: 600px;
+    min-width: 320px; //避免100%視窗縮小
+    margin: 45px auto;
+    background-color: #fff;
+    padding: 12px 16px;
 }
 
-header{
-  color: $major;
-  padding: 0 16px;
-  // outline: 1px solid #ccc;
-
-  h3{
-    font-weight: normal;
-    user-select: none;
-  }
-}
-
-footer{
-  // outline: 1px solid #ccc;
-  padding: 0 12px;
-
-  p{
-    font-size: 14px;
-    font-weight: 300;
-    margin: 2rem 0 1rem;//@@為何要一下px 一下rem
-  }
-}
-
-.add-todo{
-  // outline: 1px solid #ccc;
-  // outline: 1px solid #ccc;
-  min-height: 52px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  padding: 0 12px;
-  word-wrap: break-word;
-  word-break: break-word;
-  box-shadow: 0 17px 0 -16px #e5e5e5;
-  // border-bottom: 1px solid #ccc;
-  &.active{
-    box-shadow: 0 17px 0 -16px $major;
-    // box-shadow: 0 1px 0px 0px #ff6600;//!等同於
-    .add-todo-input{
-      input::placeholder{
-        color: $gray;
-      }
-    }
-
-    .add-todo-action{
-      .btn-add{
-        display: block;
-      }
-    }
-  }
-
-  .add-todo-icon{
-    display: inline-flex;//@@
-    font-size: 30px;
-    font-weight: 300;
+header {
     color: $major;
-    transition: $major .2s ease-out;//@@
+    padding: 0 16px;
+    // outline: 1px solid #ccc;
 
-    &::after{
-      content: "+";
+    h3 {
+        font-weight: normal;
+        user-select: none;
     }
-  }
-  .add-todo-input{
+}
+
+footer {
+    // outline: 1px solid #ccc;
+    padding: 0 12px;
+
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        margin: 2rem 0 1rem; //@@為何要一下px 一下rem
+    }
+}
+
+.add-todo {
+    // outline: 1px solid #ccc;
+    // outline: 1px solid #ccc;
     min-height: 52px;
-    flex: 1;
     display: flex;
     align-items: center;
-    user-select: none;
-    input{
-      flex: 1;//
-      padding: 8px 12px;
-      border: 0;
-      outline: 0;//!focus
-      font-size: 1rem;
-      &::placeholder {
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0 12px;
+    word-wrap: break-word;
+    word-break: break-word;
+    box-shadow: 0 17px 0 -16px #e5e5e5;
+    // border-bottom: 1px solid #ccc;
+    &.active {
+        box-shadow: 0 17px 0 -16px $major;
+        // box-shadow: 0 1px 0px 0px #ff6600;//!等同於
+        .add-todo-input {
+            input::placeholder {
+                color: $gray;
+            }
+        }
+
+        .add-todo-action {
+            .btn-add {
+                display: block;
+            }
+        }
+    }
+
+    .add-todo-icon {
+        display: inline-flex; //@@
+        font-size: 30px;
+        font-weight: 300;
         color: $major;
-        font-size: 13px;
-      }
-    }
-  }
+        transition: $major 0.2s ease-out; //@@
 
-  .add-todo-action{
-    .btn-add{
-      display: none;
-      font-size: 13px;
-      color: $major;
-      padding-right: 5px;
-      outline: 0;
-      border: 0;
-      background: transparent;
+        &::after {
+            content: '+';
+        }
     }
-  }
+    .add-todo-input {
+        min-height: 52px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        user-select: none;
+        input {
+            flex: 1; //
+            padding: 8px 12px;
+            border: 0;
+            outline: 0; //!focus
+            font-size: 1rem;
+            &::placeholder {
+                color: $major;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .add-todo-action {
+        .btn-add {
+            display: none;
+            font-size: 13px;
+            color: $major;
+            padding-right: 5px;
+            outline: 0;
+            border: 0;
+            background: transparent;
+        }
+    }
 }
 
-
-.todos{
-  // outline: 1px solid #ccc;
+.todos {
+    // outline: 1px solid #ccc;
 }
 
-.task-item{
-  // outline: 1px solid silver;
-  min-height: 52px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  word-wrap: break-word;//@@
-  word-break: break-word;//@@
-  flex-wrap: wrap;//@@
-  padding: 0 12px;
-  box-shadow: 0 17px 0 -16px #e5e5e5;//!!會縮小
-
-  &:hover{
-    background: #fff3eb;
-    box-shadow: inset 0 0 0 1px #fff3eb;//@@inset無用
-
-    .task-item-action .btn-delete{
-      display: inline-flex;
-    }
-  }
-
-
-  //@@scss指南 狀態寫前寫後
-  &.done{
-    .icon.icon-checked{ //沒加icon 點的當下會被hover蓋過 或是重複class
-      background-image: url('./assert/images/check-active.svg');
-      background-repeat: no-repeat;
-    }
-
-    .task-item-body{
-      color: $gray;
-      text-decoration:line-through;
-    }
-
-    // .btn-delete{
-    //   display: inline-flex;
-    // }
-
-  }
-
-  &.edit{
-    .task-item-body-text{
-      display: none;
-    }
-
-    .task-item-body-input{
-      display: block;
-    }
-
-  }
-
-  .task-item-checked{
+.task-item {
+    // outline: 1px solid silver;
+    min-height: 52px;
     display: flex;
-    justify-content: center;
     align-items: center;
-  }
+    position: relative;
+    word-wrap: break-word; //@@
+    word-break: break-word; //@@
+    flex-wrap: wrap; //@@
+    padding: 0 12px;
+    box-shadow: 0 17px 0 -16px #e5e5e5; //!!會縮小
 
-  .task-item-body{
-    padding: 8px 12px;
-    flex: 1;
-    display: flex;
-    font-weight: 400;
+    &:hover {
+        background: #fff3eb;
+        box-shadow: inset 0 0 0 1px #fff3eb; //@@inset無用
 
-    &-input{
-      display: none;
-      user-select: none;
-      flex: 1;
-      padding: 8px 0;
-      border: 0;
-      outline: 0;
-      font-size: 1rem;
-
-      &::placeholder{
-        color: $gray;
-        font-size: 13px;
-      }
+        .task-item-action .btn-delete {
+            display: inline-flex;
+        }
     }
-  }
 
-  .task-item-action{
-    .btn-delete{
-      display: none;
-      font-size: 18px;//大小
-      transition: color .2s ease-out;
-      font-weight: 300;//粗細
-      &::after{
-        content: "X";//!!無法選取
-      }
+    //@@scss指南 狀態寫前寫後
+    &.done {
+        .icon.icon-checked {
+            //沒加icon 點的當下會被hover蓋過 或是重複class
+            background-image: url('./assert/images/check-active.svg');
+            background-repeat: no-repeat;
+        }
+
+        .task-item-body {
+            color: $gray;
+            text-decoration: line-through;
+        }
+
+        // .btn-delete{
+        //   display: inline-flex;
+        // }
     }
-  }
+
+    &.edit {
+        .task-item-body-text {
+            display: none;
+        }
+
+        .task-item-body-input {
+            display: block;
+        }
+    }
+
+    .task-item-checked {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .task-item-body {
+        padding: 8px 12px;
+        flex: 1;
+        display: flex;
+        font-weight: 400;
+
+        &-input {
+            display: none;
+            user-select: none;
+            flex: 1;
+            padding: 8px 0;
+            border: 0;
+            outline: 0;
+            font-size: 1rem;
+
+            &::placeholder {
+                color: $gray;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .task-item-action {
+        .btn-delete {
+            display: none;
+            font-size: 18px; //大小
+            transition: color 0.2s ease-out;
+            font-weight: 300; //粗細
+            &::after {
+                content: 'X'; //!!無法選取
+            }
+        }
+    }
 }
 
 // block還是inline
-.icon{
-  width: 32px;
-  height: 32px;
-  display: inline-flex;//@行內元素 inline非block
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: $major;
-  fill: $major;//@@
+.icon {
+    width: 32px;
+    height: 32px;
+    display: inline-flex; //@行內元素 inline非block
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $major;
+    fill: $major; //@@
 
+    &.icon-checked {
+        background-image: url('./assert/images/check-circle.svg');
+        background-position: 50%;
+        background-repeat: no-repeat;
 
-  &.icon-checked{
-    background-image: url("./assert/images/check-circle.svg");
-    background-position: 50%;
-    background-repeat: no-repeat;
-
-    &:hover{
-      background-image: url("./assert/images/check-hover.svg");
-      transition: background-image .5s;
+        &:hover {
+            background-image: url('./assert/images/check-hover.svg');
+            transition: background-image 0.5s;
+        }
     }
-  }
 }
 
 //@@
@@ -237,18 +233,18 @@ footer{
 *utils
 **/
 
-.btn-reset{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-size: 100%;
-  vertical-align: baseline;
-  font-family: inherit;
-  font-weight: inherit;
-  appearance: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  cursor: pointer;
-  outline: 0;
+.btn-reset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+    outline: 0;
 }
