@@ -18,19 +18,37 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "format": "prettier src/**/*.{js,jsx,scss,css,md} --write",
-    "lint": "eslint src/**/*.{js}",
+    "format": "prettier src/**/*.{js,jsx,scss,css,md} --write && eslint src/**/*.{js,jsx} --fix",
+    "lint": "eslint src/**/*.{js,jsx} --fix",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "prettier"
+    ],
+    "rules": {
+      "object-curly-newline": [
+        2,
+        "always"
+      ],
+      "object-property-newline": [
+        2,
+        {
+          "allowAllPropertiesOnSameLine": false
+        }
+      ]
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
   },
   "prettier": {
     "trailingComma": "es5",
-    "tabWidth": 4,
+    "tabWidth": 2,
     "semi": true,
     "singleQuote": true
   },
@@ -48,6 +66,8 @@
   },
   "devDependencies": {
     "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-react": "^7.22.0",
     "prettier": "2.2.1"
   }
 }
